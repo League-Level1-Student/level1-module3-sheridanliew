@@ -60,7 +60,7 @@ public class NastySurprise implements ActionListener {
 		}
 		if (e.getSource() == treat) {
 			showPictureFromTheInternet(
-					"https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiylLXc88XdAhVQRa0KHStEDJQQjRx6BAgBEAU&url=https%3A%2F%2Fwww.nexusmods.com%2Fskyrim%2Fmods%2F67871%2F&psig=AOvVaw1keFB4do8Frpj_CgkiHHB4&ust=1537406506018432");
+					"https://images-na.ssl-images-amazon.com/images/I/817iyCn7ZzL._SX425_.jpg");
 		}
 		frame.pack();
 	}
