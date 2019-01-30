@@ -22,6 +22,7 @@ public class PigLatinTranslatorRunner implements MouseListener {
 	void GUI() {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Pig Latin Translator");
 		frame.add(panel);
 		panel.add(text);
 		text.setPreferredSize(new Dimension(200, 20));
@@ -37,8 +38,10 @@ public class PigLatinTranslatorRunner implements MouseListener {
 		// TODO Auto-generated method stub
 		PigLatinTranslator plt = new PigLatinTranslator();
 		if (e.getSource() == button) {
-			//plt.translate();
-			//getText
+			String original = text.getText();
+			String translates = plt.translate(original);
+			translated.setText(translates);
+			frame.pack();
 		}
 	}
 
