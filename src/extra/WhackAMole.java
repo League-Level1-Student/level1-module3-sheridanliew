@@ -1,10 +1,12 @@
 package extra;
 
+import java.applet.AudioClip;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Date;
 import java.util.Random;
 
+import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -52,10 +54,15 @@ public class WhackAMole implements MouseListener {
 			speak("You missed.");
 		} else {
 			molesWhacked++;
+			playSound("ding.wav");
 		}
-		if (molesWhacked==10) {
+		if (molesMissed == 5) {
+			speak("Sorry, you lost.");
+			endGame(time, molesWhacked);
+		} if (molesWhacked == 10) {
 			endGame(time, molesWhacked);
 		}
+		frame.dispose();
 		drawButtons(r.nextInt(24));
 	}
 
@@ -71,6 +78,11 @@ public class WhackAMole implements MouseListener {
 		Date timeAtEnd = new Date();
 		JOptionPane.showMessageDialog(null, "Your whack rate is "
 				+ ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / molesWhacked) + " moles per second.");
+	}
+	
+	private void playSound(String fileName) {
+	     AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName));
+	     sound.play();
 	}
 
 	@Override
