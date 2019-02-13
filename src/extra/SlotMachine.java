@@ -12,19 +12,23 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class SlotMachine implements MouseListener {
 	JFrame frame;
 	JPanel panel;
 	JButton spinner;
-	JLabel orangeLabel;
-	JLabel limeLabel;
-	JLabel lemonLabel;
+	JLabel reel1;
+	JLabel reel2;
+	JLabel reel3;
 	Random random = new Random();
 	String orange = "th-4.jpg";
-	String lime = ("th-1.jpg");
-	String lemon = ("th-2.jpg");
+	String lime = "th-1.jpg";
+	String lemon = "th-2.jpg";
+	int random1;
+	int random2;
+	int random3;
 
 	public static void main(String[] args) {
 		new SlotMachine().window();
@@ -37,9 +41,12 @@ public class SlotMachine implements MouseListener {
 		frame.setTitle("Slot Machine");
 		panel = new JPanel();
 		frame.add(panel);
-		panel.add(getRandomPicture());
-		panel.add(getRandomPicture());
-		panel.add(getRandomPicture());
+		reel1 = getRandomPicture(1);
+		panel.add(reel1);
+		reel2 = getRandomPicture(2);
+		panel.add(reel2);
+		reel3 = getRandomPicture(3);
+		panel.add(reel3);
 		spinner = new JButton();
 		panel.add(spinner);
 		spinner.setText("SPIN");
@@ -48,8 +55,15 @@ public class SlotMachine implements MouseListener {
 		frame.pack();
 	}
 
-	JLabel getRandomPicture() {
+	JLabel getRandomPicture(int rand) {
 		int r = random.nextInt(3);
+		if (rand == 1) {
+			random1 = r;
+		} else if (rand == 2) {
+			random2 = r;
+		} else {
+			random3 = r;
+		}
 		try {
 			if (r == 0) {
 				return createLabelImage(orange);
@@ -77,9 +91,10 @@ public class SlotMachine implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getSource() == spinner) {
-			frame.dispose();
-			window();
+		frame.dispose();
+		window();
+		if (random1 == random2 && random2 == random3) {
+			JOptionPane.showMessageDialog(null, "YOU WIN!!!");
 		}
 	}
 
