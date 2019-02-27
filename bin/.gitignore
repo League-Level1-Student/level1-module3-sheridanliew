@@ -5,8 +5,10 @@
 /CowTimer.class
 /FortuneTeller.class
 /GetLatestTweet.class
+/Gridworld.class
 /Jeopardy.class
 /Movie.class
+/Netflix.class
 /NetflixQueue.class
 /PigLatinTranslator.class
 /PigLatinTranslatorRunner.class
@@ -23,5 +25,3 @@
 /opticalfeature.jpg
 /right.jpg
 /up.jpg
-/Netflix.class
-/Gridworld.class
